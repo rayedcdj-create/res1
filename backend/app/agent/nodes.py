@@ -32,8 +32,12 @@ def assistant_node(state: CRMState):
         # Translate context to snake_case so the LLM doesn't get confused by camelCase
         snake_case_data = {camel_to_snake(k): v for k, v in current_data.items()}
         
+        import datetime
+        current_datetime = datetime.datetime.now().strftime("%Y-%m-%d")
+        
         sys_msg = SystemMessage(content=(
             "You are an AI-first CRM assistant for Healthcare Professional (HCP) interactions. "
+            f"The current date is {current_datetime}. When the user says 'today', 'tomorrow', or 'next week', use this date to calculate the actual calendar date (e.g., YYYY-MM-DD).\n"
             "Your job is to help pharmaceutical sales representatives log and manage their meetings with HCPs. "
             "When the user describes a meeting, use the log_interaction tool. "
             "When the user asks to change a field, use the edit_interaction tool. "
