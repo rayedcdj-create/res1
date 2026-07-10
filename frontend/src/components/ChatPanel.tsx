@@ -34,7 +34,8 @@ export const ChatPanel: React.FC = () => {
     try {
       // In Phase 5 this connects to the real backend
       // Pass the current interaction state as context so the stateless backend has memory
-      const response = await axios.post('http://localhost:8000/api/chat', { 
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await axios.post(`${apiUrl}/api/chat`, { 
         message: userMessage.content,
         context: interaction
       });
