@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import chatReducer, { addMessage, clearChat, ChatState, ChatMessage } from './chatSlice';
+import chatReducer, { addMessage, clearChat, type ChatState, type ChatMessage } from './chatSlice';
 
 describe('chatSlice', () => {
   const initialState: ChatState = {

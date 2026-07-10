@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import appReducer, { setLoading, setSelectedTool, AppState } from './appSlice';
+import appReducer, { setLoading, setSelectedTool, type AppState } from './appSlice';
 
 describe('appSlice', () => {
   const initialState: AppState = {

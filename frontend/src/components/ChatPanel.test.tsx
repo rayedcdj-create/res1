@@ -7,7 +7,7 @@ import { ChatPanel } from './ChatPanel';
 import chatReducer from '../redux/slices/chatSlice';
 import appReducer from '../redux/slices/appSlice';
 import interactionReducer from '../redux/slices/interactionSlice';
-import axios from 'axios';
+
 
 // Mock axios
 vi.mock('axios');
@@ -16,7 +16,7 @@ const renderWithRedux = (
   ui: React.ReactElement,
   {
     initialState = {
-      chat: { messages: [] },
+      chat: { messages: [] as any[] },
       app: { isLoading: false, selectedTool: null },
       interaction: {
         hcpName: '', hospital: '', interactionType: '', interactionDate: '', interactionTime: '',
@@ -25,8 +25,8 @@ const renderWithRedux = (
     },
     store = configureStore({
       reducer: { chat: chatReducer, app: appReducer, interaction: interactionReducer },
-      preloadedState: initialState as any
-    })
+      preloadedState: initialState
+    } as any)
   } = {}
 ) => {
   return {

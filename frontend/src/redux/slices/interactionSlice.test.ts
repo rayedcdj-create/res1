@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import interactionReducer, { updateInteraction, resetInteraction, InteractionState } from './interactionSlice';
+import interactionReducer, { updateInteraction, resetInteraction, type InteractionState } from './interactionSlice';
 
 describe('interactionSlice', () => {
   const initialState: InteractionState = {

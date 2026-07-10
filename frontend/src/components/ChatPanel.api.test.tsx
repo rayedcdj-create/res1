@@ -1,13 +1,13 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { ChatPanel } from './ChatPanel';
 import chatReducer from '../redux/slices/chatSlice';
 import appReducer from '../redux/slices/appSlice';
 import interactionReducer from '../redux/slices/interactionSlice';
-import { server } from '../test/server';
+
 
 const renderWithRedux = (ui: React.ReactElement) => {
   const store = configureStore({
@@ -19,8 +19,8 @@ const renderWithRedux = (ui: React.ReactElement) => {
         hcpName: '', hospital: '', interactionType: '', interactionDate: '', interactionTime: '',
         topicsDiscussed: '', sentiment: '', summary: '', outcomes: '', actionItems: [], attendees: []
       }
-    } as any
-  });
+    }
+  } as any);
   return {
     ...render(<Provider store={store}>{ui}</Provider>),
     store
